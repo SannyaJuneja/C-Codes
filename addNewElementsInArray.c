@@ -7,6 +7,10 @@ int main() {
     scanf("%d", &n);
 
     int *originalArray = (int *)malloc(n * sizeof(int)); 
+    if (originalArray == NULL) {
+        fprintf(stderr, "Memory allocation failed.\n");
+        return 1; // Exit the program with an error code
+    }
 
     printf("Enter %d elements for the original array:\n", n);
     for (int i = 0; i < n; i++) {
@@ -19,6 +23,11 @@ int main() {
 
     int newSize = n + m;
     int *newArray = (int *)malloc(newSize * sizeof(int));
+    if (newArray == NULL) {
+        fprintf(stderr, "Memory allocation failed.\n");
+        free(originalArray); // Free the previously allocated memory
+        return 1; // Exit the program with an error code
+    }
 
     for (int i = 0; i < n; i++) {
         newArray[i] = originalArray[i];
