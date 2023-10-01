@@ -1,17 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n; 
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
 
-    printf("Original Array: ");
+    int a[n]; 
+
+    printf("Enter %d elements:\n", n);
     for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+        scanf("%d", &a[i]); 
+    }
+
+    printf("You entered the following elements:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
     }
 
     printf("\nArray with Doubled Values: ");
     for (int i = 0; i < n; i++) {
-        int doubledValue = arr[i] * 2;
+        int doubledValue = a[i] * 2; 
         printf("%d ", doubledValue);
     }
 
